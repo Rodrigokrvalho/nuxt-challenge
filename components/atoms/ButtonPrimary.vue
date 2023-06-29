@@ -1,5 +1,5 @@
 <template>
-  <b-button class="w-100 ">
+  <b-button class="w-100 font-weight-bold ">
     <slot />
   </b-button>
 </template>
