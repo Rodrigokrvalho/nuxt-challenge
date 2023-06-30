@@ -1,70 +1,43 @@
 # teste-compayz
 
-## Build Setup
+## Descrição
+Esta é uma aplicação de seleção de planos e checkout com cartão de credito onde é possível selecionar o plano desejado, alterar parâmetros como quantidade de domínios,  a alteração de quantidades padrão acarreta alteração no preço final. Apos seleção de plano o usuário deve preencher o modal com suas informações pessoais, assim finalizando a aplicação.
 
-```bash
-# install dependencies
-$ yarn install
+Aplicação é Client-Side-Rendering onde seus componentes  foram organizados e construídos com base no pattern Atomic Design que consiste em fragmentar as partes de um componente maior reduzindo-o até que se obtenha partes ínfimas e totalmente desacopladas onde unidas constituem  o layout completo.
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## Instalação
+Certifique-se de ter Node.js e Yarn instalados em sua máquina antes de seguir os próximos passos.
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+# clone o repositório
+git clone https://github.com/Rodrigokrvalho/nuxt-challenge.git
 
-# generate static project
-$ yarn generate
-```
+# navegue até o diretório do projeto
+cd nuxt-challenge
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+# instale as dependências
+yarn install
 
-## Special Directories
+Scripts Disponíveis
+No diretório do projeto, você pode rodar:
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+yarn dev
+Roda a aplicação em modo de desenvolvimento.
+Abra http://localhost:3000 para ver no navegador.
 
-### `assets`
+yarn build
+Constrói a aplicação para produção na pasta dist.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+yarn start
+Inicia o servidor em modo de produção. É necessário ter executado yarn build antes.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+yarn generate
+Constrói a aplicação e cria todos os caminhos como HTML para uso em hospedagens estáticas.
 
-### `components`
+yarn lint:js
+Executa o ESLint para encontrar problemas no código.
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+yarn lintfix
+Executa o ESLint e corrige problemas automaticamente.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-# nuxt-challenge
+yarn test
+Executa testes unitários com o Jest.
