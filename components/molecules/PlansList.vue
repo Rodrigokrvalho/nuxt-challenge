@@ -56,6 +56,8 @@ import PlanServices from './PlanServices.vue';
 import PlansTotal from './PlansTotal.vue';
 
 import { PropType } from 'vue/types';
+import { planDetails } from '~/utils/planDetails';
+import { calcTotalPlans } from '~/utils/calcTotalPlans';
 
 interface Plan {
   id: number;
@@ -90,11 +92,13 @@ export default Vue.extend({
   },
   methods: {
     async asyncGetPlan(id: number) {
-      const response = await this.$axios.get(`/api/plan/planDetails?id=${id}`)
-        .then(res => res.data.data.planInfo)
-        .catch(() => null);
+      // const response = await this.$axios.get(`/api/plan/planDetails?id=${id}`)
+      //   .then(res => res.data.data.planInfo)
+      //   .catch(() => null);
 
-      this.planSelected = response;
+      const response = planDetails(`/api/plan/planDetails?id=${id}`);
+
+      this.planSelected = response.planInfo;
       this.addToTotalPrice = 0;
     },
     async asyncGetAddPriceAmount() {
@@ -104,11 +108,13 @@ export default Vue.extend({
         return;
       }
 
-      const response = await this.$axios.get(`/api/plan/calcTotalPlanPrice?quantity-add=${amount}`)
-        .then(res => res.data.addOnPriceAmt)
-        .catch(() => null);
+      // const response = await this.$axios.get(`/api/plan/calcTotalPlanPrice?quantity-add=${amount}`)
+      //   .then(res => res.data.addOnPriceAmt)
+      //   .catch(() => null);
 
-      this.addToTotalPrice = response;
+      const response = calcTotalPlans(`/api/plan/calcTotalPlanPrice?quantity-add=${amount}`);
+
+      this.addToTotalPrice = response.addOnPriceAmt;
     },
     calcAddictionalServicesAmount() {
       let servicesAdd = 0;

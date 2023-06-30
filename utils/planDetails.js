@@ -1,5 +1,5 @@
-export default function (req, res, next) {
-  const params = new URLSearchParams(req.url.split('?')[1]);
+export function planDetails(url) {
+  const params = new URLSearchParams(url.split('?')[1]);
 
   const planID = parseInt(params.get('id'));
   const plans = {
@@ -59,8 +59,5 @@ export default function (req, res, next) {
     6: {},
   }
 
-  res.end(JSON.stringify(plans[planID]));
-
-  next()
+  return plans[planID].data;
 }
-
