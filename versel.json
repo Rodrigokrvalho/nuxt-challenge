@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/vercel-builder",
+      "config": {
+        "serverFiles": [
+          "~/middlewares/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/plan/calcTotalPlanPrice",
+      "dest": "/api/plan/calcTotalPlanPrice"
+    },
+    {
+      "src": "/api/plan/planDetails",
+      "dest": "/api/plan/planDetails"
+    },
+    {
+      "src": "/api/plan/plansAvailable",
+      "dest": "/api/plan/plansAvailable"
+    },
+    {
+      "src": "/.*",
+      "dest": "/"
+    }
+  ]
+}
