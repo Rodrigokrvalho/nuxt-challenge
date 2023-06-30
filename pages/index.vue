@@ -4,15 +4,15 @@
       :isVisible="isFormFinalizationVisible"
       :total="total"
     />
-
-    <PlansList
+    {{ plans }}
+    <!-- <PlansList
       v-if="plans?.activePlans"
       :plans="plans?.activePlans"
       @openModal="($event) => {
         isFormFinalizationVisible = true;
         total = $event;
       }"
-    />
+    /> -->
 
   </div>
 </template>
