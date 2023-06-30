@@ -6,7 +6,7 @@
     />
 
     <PlansList
-      :plans="plans.activePlans"
+      :plans="plans?.activePlans"
       @openModal="($event) => {
         isFormFinalizationVisible = true;
         total = $event;
