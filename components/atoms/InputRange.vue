@@ -1,12 +1,15 @@
 <template>
-  <b-form-input
-    type="range"
-    :min="minValue"
-    :max="maxValue"
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event)"
-    :id="id"
-  />
+  <div>
+    <span class="text-custom text-center d-block">{{ modelValue }}</span>
+    <b-form-input
+      type="range"
+      :min="minValue"
+      :max="maxValue"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event)"
+      :id="id"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,3 +31,9 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+.text-custom {
+  width: 10rem;
+}
+</style>

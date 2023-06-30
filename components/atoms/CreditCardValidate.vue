@@ -15,7 +15,7 @@
             class="char"
             v-show="char"
           >
-            {{ char }}{{ index === 1 ? '/' : '' }}
+            {{ char }}
           </span>
         </Animation>
       </span>
@@ -58,10 +58,6 @@ export default Vue.extend({
     display: inline-block;
     position: relative;
     width: 0.65rem;
-
-    &:nth-child(2) {
-      width: 1.1rem;
-    }
 
     .char {
       position: absolute;

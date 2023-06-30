@@ -24,6 +24,7 @@
       @focus="handleFocus"
       @blur="handleBlur"
       @input="$emit('update:modelValue', $event)"
+      v-mask="mask"
     />
   </div>
 </template>
@@ -59,6 +60,10 @@ export default Vue.extend({
       type: String,
       default: () => ''
     },
+    mask: {
+      type: String || Number,
+      default: () => ''
+    }
   },
   methods: {
     handleFocus() {

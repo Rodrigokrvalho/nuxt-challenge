@@ -19,6 +19,12 @@ export default {
     ]
   },
 
+  serverMiddleware: [
+    { path: '/api/plan/calcTotalPlanPrice', handler: '~/middlewares/calcTotalPlans.js' },
+    { path: '/api/plan/planDetails', handler: '~/middlewares/planDetails.js' },
+    { path: '/api/plan/plansAvailable', handler: '~/middlewares/plansAvailable.js' },
+  ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/scss/main.scss',
@@ -30,6 +36,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/fontawesome.js',
+    '~/plugins/vue-mask.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

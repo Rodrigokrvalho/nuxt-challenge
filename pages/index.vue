@@ -1,71 +1,53 @@
 <template>
   <div>
-
-    <h1>Test</h1>
-
-    <ButtonPrimary>
-      Test Test
-    </ButtonPrimary>
-
-    <ButtonSecondary>
-      Test Test
-    </ButtonSecondary>
-
-    <Dropdown>
-      <li>test333</li>
-    </Dropdown>
-
-    <ListContainer />
-
-    <InputRange
-      :maxValue="70"
-      :modelValue="inputRange"
-      @update:modelValue="inputRange = $event"
-    />
-    {{ inputRange }}
-
-    <InputText
-      id="test"
-      label="Test"
-      :required="true"
-      :modelValue="inputText"
-      @update:modelValue="inputText = $event"
+    <FormFinalization
+      :isVisible="isFormFinalizationVisible"
+      :total="total"
     />
 
-    <CreditCard :isFrontCardFaceUp="isFrontCardFaceUp" />
-
-    <button @click="isFrontCardFaceUp = !isFrontCardFaceUp">{{ isFrontCardFaceUp }}</button>
+    <PlansList
+      :plans="plans.activePlans"
+      @openModal="($event) => {
+        isFormFinalizationVisible = true;
+        total = $event;
+      }"
+    />
 
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import ButtonPrimary from '~/components/atoms/ButtonPrimary.vue';
-import ButtonSecondary from '~/components/atoms/ButtonSecondary.vue';
-import Dropdown from '~/components/molecules/Dropdown.vue';
-import ListContainer from '~/components/molecules/ListContainer.vue';
-import InputRange from '~/components/atoms/InputRange.vue';
-import InputText from '~/components/molecules/InputText.vue';
-import CreditCard from '~/components/organisms/CreditCard.vue';
+import PlansTotal from '~/components/molecules/PlansTotal.vue';
+import FormFinalization from '~/components/organisms/FormFinalization.vue';
+import PlansList from '~/components/molecules/PlansList.vue';
 
 export default Vue.extend({
   name: "IndexPage",
   components: {
-    ButtonPrimary,
-    Dropdown,
-    ButtonSecondary,
-    ListContainer,
-    InputRange,
-    InputText,
-    CreditCard
+    FormFinalization,
+    PlansList,
+    PlansTotal
+  },
+  async asyncData({ $axios }) {
+    const response = await $axios.$get('/api/plan/plansAvailable')
+      .then(res => res.data)
+      .catch(err => console.error(err));
+
+    const formatted = response?.activePlans?.sort((acc: any, prev: any) => (acc.seqno > prev.seqno));
+
+    response.activePlans = formatted;
+
+    return {
+      isLoading: false,
+      plans: response
+    };
   },
   data() {
     return {
-      selected: false,
-      inputRange: 0,
-      inputText: '',
-      isFrontCardFaceUp: true
+      isLoading: true,
+      isFormFinalizationVisible: false,
+      total: 0
     };
   }
 });

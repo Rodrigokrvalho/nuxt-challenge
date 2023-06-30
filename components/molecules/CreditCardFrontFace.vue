@@ -38,24 +38,24 @@ export default Vue.extend({
     CreditCardName,
     CreditCardValidate
   },
-  data() {
-    return {
-      isLogoVisible: true,
-      numbers: '1234123412341234',
-      name: 'Rodrigo S Carvalho',
-      cardValidate: '1022'
-    };
-  },
-  watch: {
-    numbers() {
-      if (this.numbers.length === 16) {
-        this.isLogoVisible = true;
-        return;
-      }
-
-      this.isLogoVisible = false;
+  props: {
+    isLogoVisible: {
+      type: Boolean,
+      required: true
+    },
+    numbers: {
+      type: String,
+      default: () => ''
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    cardValidate: {
+      type: String,
+      required: true
     }
-  }
+  },
 });
 </script>
 
@@ -81,6 +81,6 @@ export default Vue.extend({
 .validate {
   position: absolute;
   top: 8rem;
-  left: 13.5rem;
+  left: 12.5rem;
 }
 </style>

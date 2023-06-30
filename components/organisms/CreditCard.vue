@@ -4,10 +4,15 @@
     :style="{ transform: cardRotation }"
   >
     <div class="frontface">
-      <CreditCardFrontFace />
+      <CreditCardFrontFace
+        :isLogoVisible="cardNumber.length === 16"
+        :numbers="cardNumber"
+        :name="cardName"
+        :cardValidate="cardValidity"
+      />
     </div>
     <div class="backface">
-      <CreditCardBackFace />
+      <CreditCardBackFace :cardCVV="cardCVV" />
     </div>
 
   </div>
@@ -23,7 +28,22 @@ export default Vue.extend({
   props: {
     isFrontCardFaceUp: {
       type: Boolean,
-      required: false,
+    },
+    cardName: {
+      type: String,
+      required: true
+    },
+    cardNumber: {
+      type: String,
+      required: true
+    },
+    cardValidity: {
+      type: String,
+      required: true
+    },
+    cardCVV: {
+      type: String,
+      required: true
     }
   },
   components: {
@@ -32,16 +52,19 @@ export default Vue.extend({
   },
   data() {
     return {
+      isLogoVisible: true,
       cardRotation: 'rotateY(0deg)'
     };
   },
   watch: {
     isFrontCardFaceUp(newValue) {
+
       this.setCardRotation(newValue);
     }
   },
   methods: {
     setCardRotation(turnFrontFaceUp: boolean) {
+
       if (turnFrontFaceUp) {
         this.cardRotation = 'rotateY(0deg)';
         return;

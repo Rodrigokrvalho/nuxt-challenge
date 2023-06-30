@@ -1,6 +1,6 @@
 <template>
   <li
-    class=" font-weight-bold "
+    class=" font-weight-bold px-4 pb-2 "
     :class="hasDivider ? 'border-bottom-light' : ''"
   >
     <slot />

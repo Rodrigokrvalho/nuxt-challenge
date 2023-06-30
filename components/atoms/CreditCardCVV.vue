@@ -25,7 +25,7 @@ import Vue from 'vue';
 import Animation from './Animation.vue';
 
 export default Vue.extend({
-  name: "CreditCardName",
+  name: "CreditCardCVV",
   props: {
     cardCVV: {
       type: String,

@@ -1,5 +1,9 @@
 <template>
-  <b-button class="w-100 font-weight-bold ">
+  <b-button
+    :type="type"
+    class="w-100 font-weight-bold "
+    @click="$emit('handleClick')"
+  >
     <slot />
   </b-button>
 </template>
@@ -8,6 +12,12 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'ButtonPrimary'
+  name: 'ButtonPrimary',
+  props: {
+    type: {
+      type: String,
+      default: () => 'button'
+    }
+  }
 });
 </script>

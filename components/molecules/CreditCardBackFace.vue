@@ -20,11 +20,13 @@ import CreditCardCVV from '../atoms/CreditCardCVV.vue';
 export default Vue.extend({
   name: "CreditCardBackFace",
   components: { CreditCardCVV, CreditCardLogo },
-  data() {
-    return {
-      cardCVV: '000'
-    };
+  props: {
+    cardCVV: {
+      type: String,
+      default: () => '000'
+    }
   }
+
 });
 </script>
 
