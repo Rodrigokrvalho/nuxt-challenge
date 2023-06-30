@@ -1,4 +1,4 @@
-# teste-compayz
+# nuxt challenge
 
 ## Descrição
 Esta é uma aplicação de seleção de planos e checkout com cartão de credito onde é possível selecionar o plano desejado, alterar parâmetros como quantidade de domínios,  a alteração de quantidades padrão acarreta alteração no preço final. Apos seleção de plano o usuário deve preencher o modal com suas informações pessoais, assim finalizando a aplicação.
