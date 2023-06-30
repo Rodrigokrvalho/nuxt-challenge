@@ -1,23 +1,23 @@
 # teste-compayz
 
-## Descrição
+# Descrição
 Esta é uma aplicação de seleção de planos e checkout com cartão de credito onde é possível selecionar o plano desejado, alterar parâmetros como quantidade de domínios,  a alteração de quantidades padrão acarreta alteração no preço final. Apos seleção de plano o usuário deve preencher o modal com suas informações pessoais, assim finalizando a aplicação.
 
 Aplicação é Client-Side-Rendering onde seus componentes  foram organizados e construídos com base no pattern Atomic Design que consiste em fragmentar as partes de um componente maior reduzindo-o até que se obtenha partes ínfimas e totalmente desacopladas onde unidas constituem  o layout completo.
 
-## Instalação
+# Instalação
 Certifique-se de ter Node.js e Yarn instalados em sua máquina antes de seguir os próximos passos.
 
-# clone o repositório
+## clone o repositório
 git clone https://github.com/Rodrigokrvalho/nuxt-challenge.git
 
-# navegue até o diretório do projeto
+## navegue até o diretório do projeto
 cd nuxt-challenge
 
-# instale as dependências
+## instale as dependências
 yarn install
 
-Scripts Disponíveis
+# Scripts Disponíveis
 No diretório do projeto, você pode rodar:
 
 yarn dev
