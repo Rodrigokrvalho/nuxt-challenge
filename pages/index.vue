@@ -34,7 +34,7 @@ export default Vue.extend({
     const response = await $axios.$get('/api/plan/plansAvailable')
       .then(res => res.data)
       .catch(err => console.error(err));
-
+    console.log(response);
     const formatted = response?.activePlans?.sort((acc: any, prev: any) => (acc.seqno > prev.seqno));
 
     response.activePlans = formatted;
