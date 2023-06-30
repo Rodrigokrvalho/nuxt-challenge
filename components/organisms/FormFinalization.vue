@@ -54,6 +54,7 @@
           required
           placeholder="00000-000"
           mask="#####-###"
+          @isBlur="() => asyncGetCep(formPayload.cep)"
         />
 
         <div class="row">
@@ -199,6 +200,7 @@ import InputText from '../molecules/InputText.vue';
 import InputTextMasked from '../molecules/InputTextMasked.vue';
 import ButtonPrimary from '../atoms/ButtonPrimary.vue';
 import CreditCard from './CreditCard.vue';
+import { cepSearch } from '~/utils/cepSearch';
 
 export default Vue.extend({
   name: "FormFinalization",
@@ -254,6 +256,17 @@ export default Vue.extend({
     },
     formPreviusStep() {
       this.step = this.step - 1;
+    },
+    async asyncGetCep(cep: string) {
+      console.log('response');
+      const response = await cepSearch(cep);
+
+      if (!response?.error) {
+        this.formPayload.street = response.logradouro;
+        this.formPayload.neighborhood = response.bairro;
+        this.formPayload.city = response.localidade;
+        this.formPayload.state = response.uf;
+      }
     }
   }
 });
